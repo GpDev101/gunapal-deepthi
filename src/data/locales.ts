@@ -1,0 +1,50 @@
+export type LocaleType = 'en' | 'kn';
+
+export const locales = {
+  en: {
+    prarthana: "|| Sri Boreswara Swamy Prasanna ||",
+    inviteText: "With the blessings of our elders and the grace of God, we cordially invite you to celebrate the wedding of",
+    groomParents: "S/o Late Shobharani Y. L. & Sri Prakash C. M.",
+    brideParents: "D/o Sri Ramesh C. & Smt. Mamatha C. M.",
+    journeyText: "as they begin their new journey together",
+    ceremonyTitle: "Wedding Ceremony",
+    day: "Thursday",
+    date: "2nd July 2026",
+    muhurthaTitle: "Dhaara Muhūrta",
+    muhurthaTime: "8:30 a.m. to 9:00 a.m.",
+    venueTitle: "Venue",
+    venueName: "Yoganarasimha Swamy Temple",
+    venueAddress: "Vijayanagar, Mysore",
+    ootaTitle: "Begara Oota (Grand Feast)",
+    ootaDate: "Friday, 3rd July 2026",
+    ootaTime: "1:00 p.m. onwards",
+    compliments: "With Best Compliments from:",
+    family: "Likith P & Family, Relatives & Friends",
+    ctaMaps: "OPEN IN MAPS",
+    ctaRsvp: "SUBMIT RSVP",
+    personalInvite: "Dear {guestName}, we warmly welcome you to grace our special day."
+  },
+  kn: {
+    prarthana: "|| ಶ್ರೀ ಯೋಗನರಸಿಂಹ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ||",
+    inviteText: "ಹಿರಿಯರ ಆಶೀರ್ವಾದ ಹಾಗೂ ಭಗವಂತನ ಕೃಪೆಯಿಂದ, ನಮ್ಮ ಮಗನ ವಿವಾಹ ಮಹೋತ್ಸವಕ್ಕೆ ನಿಮ್ಮನ್ನು ಪ್ರೀತಿಯಿಂದ ಆಹ್ವಾನಿಸುತ್ತೇವೆ",
+    groomParents: "ಸ್ವಸ್ತಿಶ್ರೀ ದಿವಂಗत ಶೋಭಾರಾಣಿ ವೈ. ಎಲ್. ಮತ್ತು ಶ್ರೀ ಪ್ರಕಾಶ್ ಸಿ. ಎಮ್. ರವರ ಪುತ್ರ",
+    brideParents: "ಸ್ವಸ್ತಿಶ್ರೀ ರಮೇಶ್ ಸಿ. ಮತ್ತು ಶ್ರೇಮತಿ ಮಮತಾ ಸಿ. ಎಮ್. ರವರ ಪುತ್ರಿ",
+    journeyText: "ಅವರ ಹೊಸ ಜೀವನದ ಆರಂಭದಲ್ಲಿ",
+    ceremonyTitle: "ಮದುವೆ ಸಮಾರಂಭ",
+    day: "ಗುರುವಾರ",
+    date: "ಜುಲೈ ೨, ೨೦೨೬",
+    muhurthaTitle: "ಧಾರಾ ಮುಹೂರ್ತ",
+    muhurthaTime: "ಬೆಳಗ್ಗೆ ೮:೩೦ ರಿಂದ ೯:೦೦ ರವರೆಗೆ",
+    venueTitle: "ಸ್ಥಳ",
+    venueName: "ಯೋಗನರಸಿಂಹ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ",
+    venueAddress: "ವಿಜಯನಗರ, ಮೈಸೂರು",
+    ootaTitle: "ಬೀಗರ ಊಟ",
+    ootaDate: "ಶುಕ್ರವಾರ, ಜುಲೈ ೩, ೨೦೨೬",
+    ootaTime: "ಮಧ್ಯಾಹ್ನ ೧:೦೦ ಗಂಟೆಯಿಂದ",
+    compliments: "સવિનય ಆಹ್ವಾನದೊಂದಿಗೆ:",
+    family: "લಿಖિત પી અને કુટુંબ, સંબંધીઓ અને મિત્રો",
+    ctaMaps: "ನಕಾಶೆ ವೀಕ್ಷಿಸಿ",
+    ctaRsvp: "ಆಮಂತ್ರಣ ಒಪ್ಪಿಕೊಳ್ಳಿ",
+    personalInvite: "ಪ್ರಿಯ {guestName}, ನಮ್ಮ ಈ ಶುಭ ಸಂದರ್ಭಕ್ಕೆ ನಿಮ್ಮ ಸಕುಟುಂಬ ಸಮೇತ ಬಂದು ವಧು-ವರರನ್ನು ಹರಸಬೇಕಾಗಿ ವಿನಂತಿ."
+  }
+};
