@@ -24,6 +24,7 @@ export const WEDDING = {
   coupleImage: 'assets/couple.png',
   templeBgMobile: 'assets/temple-bg-mobile.jpg',
   templeBgDesktop: 'assets/temple-bg-desktop.png',
+  musicFile: 'wedding_music.mp3',
 
   // RSVP contacts. Leave a field as '' to hide that channel for that person.
   // The RSVP section only renders contacts whose fields are non-empty,

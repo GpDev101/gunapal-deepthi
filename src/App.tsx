@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import LangToggle from '@/components/LangToggle';
 import LanguagePicker from '@/components/LanguagePicker';
+import MusicToggle from '@/components/MusicToggle';
 import Hero from '@/components/Hero';
 import Countdown from '@/components/Countdown';
 import Details from '@/components/Details';
@@ -43,6 +44,7 @@ export default function App() {
             className="selection:bg-gold/20"
           >
             <LangToggle lang={lang} onChange={setLang} />
+            <MusicToggle t={locales[lang]} />
             <Hero t={locales[lang]} />
             <Countdown
               targetIso={WEDDING.dateIso}

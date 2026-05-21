@@ -35,6 +35,8 @@ type Locale = {
   rsvpWhatsAppMessage: string;
   rsvpEmailSubject: string;
   rsvpEmailBody: string;
+  musicOn: string;
+  musicOff: string;
   footerNote: string;
 };
 
@@ -93,6 +95,8 @@ Number of guests:
 Message:
 
 Best wishes!`,
+    musicOn: 'Mute music',
+    musicOff: 'Play music',
     footerNote: 'Made with love for our families & friends',
   },
   kn: {
@@ -149,6 +153,8 @@ Best wishes!`,
 ಸಂದೇಶ:
 
 ಶುಭಾಶಯಗಳು!`,
+  musicOn: 'ಸಂಗೀತವನ್ನು ನಿಲ್ಲಿಸಿ',
+  musicOff: 'ಸಂಗೀತವನ್ನು ಪ್ಲೇ ಮಾಡಿ',
   footerNote: 'ನಮ್ಮ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರಿಗೆ ಪ್ರೀತಿಯಿಂದ',  // cleaner word order
 },
 };
