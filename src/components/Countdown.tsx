@@ -1,65 +1,75 @@
-"use client";
+import { useEffect, useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import type { LocaleType, locales } from '@/data/locales';
+import Reveal from '@/components/decor/Reveal';
+import { FlourishDivider } from '@/components/decor/Ornaments';
 
-import { useEffect, useState } from "react";
+type Props = {
+  targetIso: string;
+  lang: LocaleType;
+  t: (typeof locales)['en'];
+};
 
-interface CountdownProps {
-  target: string;
+function formatDigits(n: number, lang: LocaleType) {
+  if (lang === 'kn') {
+    const s = n.toLocaleString('kn-IN', { useGrouping: false });
+    return s.length < 2 ? `೦${s}` : s;
+  }
+  return String(n).padStart(2, '0');
 }
 
-export default function Countdown({ target }: CountdownProps) {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+function diff(targetMs: number) {
+  const now = Date.now();
+  const delta = Math.max(0, targetMs - now);
+  const days = Math.floor(delta / 86_400_000);
+  const hours = Math.floor((delta % 86_400_000) / 3_600_000);
+  const minutes = Math.floor((delta % 3_600_000) / 60_000);
+  const seconds = Math.floor((delta % 60_000) / 1000);
+  return { days, hours, minutes, seconds };
+}
+
+export default function Countdown({ targetIso, t, lang }: Readonly<Props>) {
+  const reduce = useReducedMotion();
+  const targetMs = new Date(targetIso).getTime();
+  const [now, setNow] = useState(() => diff(targetMs));
 
   useEffect(() => {
-    const calculateTimeLeft = () => {
-      const targetDate = new Date(target).getTime();
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+    const id = globalThis.setInterval(() => setNow(diff(targetMs)), 1000);
+    return () => globalThis.clearInterval(id);
+  }, [targetMs]);
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
-  }, [target]);
+  const cells: Array<[number, string]> = [
+    [now.days, t.days],
+    [now.hours, t.hours],
+    [now.minutes, t.minutes],
+    [now.seconds, t.seconds],
+  ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-transparent to-maroon/5">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-maroon mb-12">
-          Countdown to Love
-        </h2>
-        <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
-          {[
-            { label: "Days", value: timeLeft.days },
-            { label: "Hours", value: timeLeft.hours },
-            { label: "Minutes", value: timeLeft.minutes },
-            { label: "Seconds", value: timeLeft.seconds },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="bg-white rounded-lg p-6 text-center shadow-lg"
+    <section className="section text-center">
+      <Reveal>
+        <h2 className="section-title">{t.countdownTitle}</h2>
+        <FlourishDivider className="mx-auto mt-3 w-32 text-gold/70" />
+      </Reveal>
+      <div className="mt-10 grid grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto">
+        {cells.map(([n, label], i) => (
+          <Reveal key={label} delay={i * 0.06} y={20}>
+            <motion.div
+              key={n}
+              initial={reduce ? false : { opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="glass-card rounded-2xl py-5 sm:py-6 flex flex-col"
             >
-              <div className="text-3xl font-bold text-maroon mb-2">
-                {String(item.value).padStart(2, "0")}
-              </div>
-              <div className="text-sm text-maroon/70">{item.label}</div>
-            </div>
-          ))}
-        </div>
+              <span className="h-display text-3xl sm:text-5xl text-maroon tabular-nums">
+                {formatDigits(n, lang)}
+              </span>
+              <span className="mt-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-maroon/60">
+                {label}
+              </span>
+            </motion.div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

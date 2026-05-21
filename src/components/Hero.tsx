@@ -1,57 +1,130 @@
-"use client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
+import type { locales } from '@/data/locales';
+import { WEDDING } from '@/lib/config';
+import { FlourishDivider } from '@/components/decor/Ornaments';
 
-interface Props { t: any; guest?: string | null; }
+type Props = { t: (typeof locales)['en'] };
 
-export default function Hero({ t, guest }: Props) {
+export default function Hero({ t }: Readonly<Props>) {
+  const reduce = useReducedMotion();
+  const [imgOk, setImgOk] = useState(true);
+
+  const base = import.meta.env.BASE_URL;
+  const coupleSrc = `${base}${WEDDING.coupleImage}`.replace('//', '/');
+
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        {/* subtle temple silhouette bg image placeholder */}
-        <div className="absolute inset-x-0 top-8 h-56 bg-[url('/assets/images/temple-silhouette.png')] bg-center bg-no-repeat opacity-10" />
-      </div>
+    <header className="relative overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(60% 50% at 50% 20%, rgba(212,175,55,0.16), transparent 60%), radial-gradient(60% 60% at 80% 80%, rgba(232,154,176,0.14), transparent 60%)',
+        }}
+      />
 
-      <div className="z-10 text-center max-w-3xl">
-        <p className="text-sm text-maroon/60 uppercase tracking-wider mb-4">
-          Together with their families
-        </p>
-
-        <motion.h2
-          initial={{ y: 8, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="font-display text-4xl md:text-6xl leading-tight mb-4"
-        >
-          Gunapal P.{" "}
-          <span className="text-gold mx-2">&amp;</span> Deepthi R.
-        </motion.h2>
-
+      <div className="section flex flex-col items-center text-center pt-28 sm:pt-32">
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-sm md:text-base text-maroon/80 mb-6"
+          initial={reduce ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="h-serif italic text-maroon/70 text-sm sm:text-base"
         >
-          Request the honor of your presence at their wedding ceremony
+          {t.withBlessings}
         </motion.p>
 
-        <div className="text-sm text-maroon/70 mb-10">
-          Thursday, July 2, 2026
-        </div>
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mt-6 flex items-center gap-3 text-templeGreen"
+        >
+          <span className="h-px w-10 bg-templeGreen/50" />
+          <span className="eyebrow !text-templeGreen">{t.saveTheDate}</span>
+          <span className="h-px w-10 bg-templeGreen/50" />
+        </motion.div>
+
+        <motion.h1
+          initial={reduce ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="h-display mt-4 text-5xl sm:text-7xl leading-tight text-maroon text-shadow-soft"
+        >
+          {t.groomName}
+          <span className="block text-gold text-3xl sm:text-4xl my-2">&amp;</span>
+          {t.brideName}
+        </motion.h1>
 
         <motion.div
-          whileHover={{ y: -6 }}
-          className="mx-auto w-64 md:w-96"
+          initial={reduce ? false : { opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.35 }}
+          className="mt-10 float-y"
         >
-          <div className="relative rounded-2xl shadow-premium p-6 bg-gradient-to-b from-white/70 to-white/40">
-            {/* couple illustration placeholder */}
+          {imgOk ? (
             <img
-              src="/assets/images/couple-placeholder.png"
-              alt="Couple"
-              className="mx-auto w-full h-auto select-none"
+              src={coupleSrc}
+              alt={t.coupleAlt}
+              onError={() => setImgOk(false)}
+              className="max-h-[320px] sm:max-h-[420px] w-auto mx-auto select-none drop-shadow-[0_12px_24px_rgba(107,27,27,0.18)]"
+              draggable={false}
             />
+          ) : (
+            <CouplePlaceholder />
+          )}
+        </motion.div>
+
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.55 }}
+          className="mt-10"
+        >
+          <FlourishDivider className="mx-auto w-32 text-gold/70" />
+          <p className="mt-3 h-serif text-xl sm:text-2xl text-maroon">
+            {t.ceremonyDate}
+          </p>
+          <p className="h-serif text-base sm:text-lg text-maroon/80">
+            {t.ceremony} · {t.ceremonyTime}
+          </p>
+          <p className="mt-2 text-sm text-maroon/70">{t.venueName}</p>
+          <p className="text-xs text-maroon/60">{WEDDING.venueShort}</p>
+
+          <div className="mt-7 flex flex-wrap gap-3 justify-center">
+            <a href="#rsvp" className="btn-primary">
+              {t.rsvp}
+            </a>
+            <a href="#location" className="btn-ghost">
+              {t.locationTitle}
+            </a>
           </div>
         </motion.div>
       </div>
-    </section>
+    </header>
+  );
+}
+
+function CouplePlaceholder() {
+  return (
+    <div className="mx-auto max-w-md rounded-2xl border border-dashed border-maroon/30 bg-white/50 backdrop-blur p-8 text-center">
+      <svg viewBox="0 0 320 220" className="mx-auto w-56 h-auto" fill="none">
+        {/* groom */}
+        <g>
+          <circle cx="115" cy="80" r="22" fill="#FCE0CC" stroke="#6B1B1B" strokeWidth="1.4" />
+          <path d="M93 100 Q115 215 137 100 Z" fill="#FDFBF7" stroke="#6B1B1B" strokeWidth="1.4" />
+          <path d="M99 102 L131 102 L127 120 L103 120 Z" fill="#E5C46B" opacity="0.85" />
+        </g>
+        {/* bride */}
+        <g>
+          <circle cx="205" cy="80" r="22" fill="#FCE0CC" stroke="#6B1B1B" strokeWidth="1.4" />
+          <path d="M183 100 Q205 215 227 100 Z" fill="#E89AB0" stroke="#6B1B1B" strokeWidth="1.4" />
+          <path d="M189 102 L221 102 L217 120 L193 120 Z" fill="#D4AF37" opacity="0.85" />
+        </g>
+      </svg>
+      <p className="mt-3 text-xs text-maroon/70">
+        Save your artwork as <code className="text-maroon">public/assets/couple.png</code>
+      </p>
+    </div>
   );
 }

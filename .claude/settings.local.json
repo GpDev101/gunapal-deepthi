@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "PowerShell(npx tsc --noEmit 2>&1)",
+      "PowerShell(npx tsc --noEmit; echo \"EXIT=$LASTEXITCODE\")",
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell(Get-Process | Where-Object { $_.ProcessName -match \"node\" } | Select-Object Id, ProcessName, MainWindowTitle)",
+      "Bash(git config *)",
+      "Bash(rm -f tsconfig.tsbuildinfo; ls -la)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/framer-motion/package.json'\\).version\\)\")"
+    ],
+    "additionalDirectories": [
+      "D:\\ATS\\GpDev\\GP-Dipz101"
+    ]
+  }
+}
