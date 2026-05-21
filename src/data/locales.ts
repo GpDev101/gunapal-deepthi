@@ -29,12 +29,11 @@ type Locale = {
   openInMaps: string;
   rsvpTitle: string;
   rsvpSubtitle: string;
-  yourName: string;
-  guests: string;
-  willAttend: string;
-  willNotAttend: string;
-  message: string;
-  sendRsvp: string;
+  rsvpWhatsApp: string;
+  rsvpEmail: string;
+  rsvpWhatsAppMessage: string;
+  rsvpEmailSubject: string;
+  rsvpEmailBody: string;
   footerNote: string;
 };
 
@@ -69,12 +68,29 @@ export const locales: Record<LocaleType, Locale> = {
     openInMaps: 'Open in Google Maps',
     rsvpTitle: 'Will you join us?',
     rsvpSubtitle: 'Please respond by 1 June 2026',
-    yourName: 'Your name',
-    guests: 'Number of guests',
-    willAttend: 'Joyfully accepts',
-    willNotAttend: 'Regretfully declines',
-    message: 'A note for the couple (optional)',
-    sendRsvp: 'Send RSVP',
+    rsvpWhatsApp: 'RSVP via WhatsApp',
+    rsvpEmail: 'or send us an email',
+    rsvpWhatsAppMessage: `Hi Gunapal & Deepthi! 🪔
+
+I'd like to RSVP to your wedding:
+
+• Name:
+• Attending: Yes / No
+• Number of guests:
+• Message:
+
+Best wishes!`,
+    rsvpEmailSubject: 'Wedding RSVP — Gunapal & Deepthi',
+    rsvpEmailBody: `Hi Gunapal & Deepthi,
+
+I'd like to RSVP to your wedding.
+
+Name:
+Attending: Yes / No
+Number of guests:
+Message:
+
+Best wishes!`,
     footerNote: 'Made with love for our families & friends',
   },
   kn: {
@@ -107,12 +123,29 @@ export const locales: Record<LocaleType, Locale> = {
   openInMaps: 'ಗೂಗಲ್ ನಕ್ಷೆಯಲ್ಲಿ ತೆರೆಯಿರಿ',  // polite imperative
   rsvpTitle: 'ತಾವು ಬರುತ್ತೀರಾ?',  // ತಾವು more respectful than ನೀವು
   rsvpSubtitle: 'ದಯವಿಟ್ಟು ೧ ಜೂನ್ ೨೦೨೬ರ ಒಳಗೆ ತಿಳಿಸಿ',
-  yourName: 'ನಿಮ್ಮ ಹೆಸರು',
-  guests: 'ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ',
-  willAttend: 'ಸಂತೋಷದಿಂದ ಬರುತ್ತೇನೆ',  // matches the action "attend"
-  willNotAttend: 'ಕ್ಷಮಿಸಿ, ಬರಲಾಗುತ್ತಿಲ್ಲ',  // more personal
-  message: 'ವಧು-ವರರಿಗೆ ಸಂದೇಶ (ಐಚ್ಛಿಕ)',  // more accurate pre-wedding
-  sendRsvp: 'ಆರ್‌.ಎಸ್‌.ವಿ.ಪಿ. ಕಳುಹಿಸಿ',
+  rsvpWhatsApp: 'ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಪ್ರತಿಕ್ರಿಯಿಸಿ',
+  rsvpEmail: 'ಅಥವಾ ಇಮೇಲ್ ಕಳುಹಿಸಿ',
+  rsvpWhatsAppMessage: `ನಮಸ್ಕಾರ ಗುಣಪಾಲ್ ಮತ್ತು ದೀಪ್ತಿ! 🪔
+
+ನಿಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಾನು ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಲು ಬಯಸುತ್ತೇನೆ:
+
+• ಹೆಸರು:
+• ಬರುತ್ತಿದ್ದೇನೆ: ಹೌದು / ಇಲ್ಲ
+• ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ:
+• ಸಂದೇಶ:
+
+ಶುಭಾಶಯಗಳು!`,
+  rsvpEmailSubject: 'ವಿವಾಹ ಆರ್‌.ಎಸ್‌.ವಿ.ಪಿ. — ಗುಣಪಾಲ್ ಮತ್ತು ದೀಪ್ತಿ',
+  rsvpEmailBody: `ನಮಸ್ಕಾರ ಗುಣಪಾಲ್ ಮತ್ತು ದೀಪ್ತಿ,
+
+ನಿಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಾನು ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಲು ಬಯಸುತ್ತೇನೆ.
+
+ಹೆಸರು:
+ಬರುತ್ತಿದ್ದೇನೆ: ಹೌದು / ಇಲ್ಲ
+ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ:
+ಸಂದೇಶ:
+
+ಶುಭಾಶಯಗಳು!`,
   footerNote: 'ನಮ್ಮ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರಿಗೆ ಪ್ರೀತಿಯಿಂದ',  // cleaner word order
 },
 };

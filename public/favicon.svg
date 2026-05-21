@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#8B1538"/>
+  <text x="22" y="50" text-anchor="middle" dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', serif" font-weight="bold"
+        font-size="50" fill="#F4C430">G</text>
+  <path d="M50 60 C44 56 38 51 38 46 C38 43 40 41 43 41 C46 41 48 43 50 45 C52 43 54 41 57 41 C60 41 62 43 62 46 C62 51 56 56 50 60 Z"
+        fill="#FF6B8A"/>
+  <text x="78" y="50" text-anchor="middle" dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', serif" font-weight="bold"
+        font-size="50" fill="#F4C430">D</text>
+</svg>

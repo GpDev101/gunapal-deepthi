@@ -1,3 +1,13 @@
+export type RsvpRole = 'groom' | 'bride';
+
+export type RsvpContact = {
+  role: RsvpRole;
+  /** WhatsApp number in international format, no '+', no spaces. e.g. '918197215688' */
+  whatsapp: string;
+  /** Plain email address. e.g. 'foo@bar.com' */
+  email: string;
+};
+
 export const WEDDING = {
   groomName: 'Gunapal P.',
   brideName: 'Deepthi R.',
@@ -11,6 +21,23 @@ export const WEDDING = {
     'https://www.google.com/maps/search/?api=1&query=Sri+Yoga+Narasimha+Swami+Temple+Vijayanagar+1st+Stage+Mysuru',
   googleMapsEmbedUrl:
     'https://www.google.com/maps?q=Sri+Yoga+Narasimha+Swami+Temple+Vijayanagar+1st+Stage+Mysuru+570017&output=embed',
-  rsvpEmail: 'gunapal.p@1to1help.net',
   coupleImage: 'assets/couple.png',
+
+  // RSVP contacts. Leave a field as '' to hide that channel for that person.
+  // The RSVP section only renders contacts whose fields are non-empty,
+  // so you can keep Deepthi's empty until you have her details.
+  rsvpContacts: [
+    {
+      role: 'groom',
+      whatsapp: '918197215688',
+      email: 'gunapalpgp@gmail.com',
+    },
+    {
+      role: 'bride',
+      // Fill in: country-code + number, no '+', no spaces. e.g. '91XXXXXXXXXX'
+      whatsapp: '',
+      // Fill in: Deepthi's email
+      email: '',
+    },
+  ] as ReadonlyArray<RsvpContact>,
 } as const;
