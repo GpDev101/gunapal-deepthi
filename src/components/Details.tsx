@@ -20,16 +20,22 @@ export default function Details({ t }: Readonly<Props>) {
           <div className="relative glass-card rounded-2xl p-8 text-center overflow-hidden">
             <MangoLeaf className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 text-templeGreen/40" />
             <p className="eyebrow">{t.ceremony}</p>
-            <p className="h-serif mt-4 text-2xl text-maroon">{t.ceremonyDate}</p>
-            <p className="h-serif text-xl text-maroon/80">{t.ceremonyTime}</p>
+            <p className="h-serif mt-4 text-2xl sm:text-3xl text-maroon">
+              {t.ceremonyDate}
+            </p>
+            <p className="h-serif text-xl sm:text-2xl text-maroon/90">
+              {t.ceremonyTime}
+            </p>
           </div>
         </Reveal>
         <Reveal delay={0.12}>
           <div className="relative glass-card rounded-2xl p-8 text-center overflow-hidden">
             <MangoLeaf className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 text-templeGreen/40" />
             <p className="eyebrow">{t.venue}</p>
-            <p className="h-serif mt-4 text-2xl text-maroon">{t.venueName}</p>
-            <p className="h-serif text-sm text-maroon/80 mt-1">
+            <p className="h-serif mt-4 text-2xl sm:text-3xl text-maroon">
+              {t.venueName}
+            </p>
+            <p className="h-serif text-sm sm:text-base text-maroon/85 mt-1">
               {t.venueAddress}
             </p>
           </div>

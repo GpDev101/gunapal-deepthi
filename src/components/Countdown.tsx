@@ -63,10 +63,10 @@ export default function Countdown({ targetIso, t, lang }: Readonly<Props>) {
               transition={{ duration: 0.3 }}
               className="glass-card rounded-2xl py-5 sm:py-6 flex flex-col"
             >
-              <span className="h-display text-3xl sm:text-5xl text-maroon tabular-nums">
+              <span className="h-display text-3xl sm:text-5xl text-maroon tabular-nums font-bold">
                 {formatDigits(n, lang)}
               </span>
-              <span className="mt-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-maroon/60">
+              <span className="mt-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-maroon/75 font-medium">
                 {label}
               </span>
             </motion.div>

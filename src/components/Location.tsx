@@ -12,8 +12,8 @@ export default function Location({ t }: Readonly<Props>) {
         <span className="eyebrow">{t.venue}</span>
         <h2 className="section-title mt-2">{t.locationTitle}</h2>
         <FlourishDivider className="mx-auto mt-3 w-36 text-gold/70" />
-        <p className="h-serif mt-4 text-xl text-maroon/80">{t.venueName}</p>
-        <p className="text-maroon/60 text-sm">{t.venueAddress}</p>
+        <p className="h-serif mt-4 text-xl sm:text-2xl text-maroon">{t.venueName}</p>
+        <p className="text-maroon/80 text-sm sm:text-base mt-1">{t.venueAddress}</p>
       </Reveal>
 
       <Reveal delay={0.1}>

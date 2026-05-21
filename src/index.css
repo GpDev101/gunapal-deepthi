@@ -40,23 +40,38 @@ body {
   }
   .h-display {
     font-family: theme('fontFamily.display');
+    font-weight: 600;
     letter-spacing: 0.02em;
   }
   .h-serif {
     font-family: theme('fontFamily.serif');
+    font-weight: 600;
+    /* Force lining (uniform-baseline) numerals so dates/times read clearly.
+       Cormorant's default oldstyle figures look elegant but hurt readability for info. */
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: 'lnum' 1, 'tnum' 1;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-maroon text-ivory px-6 py-3 text-sm tracking-wide hover:bg-maroon/90 transition shadow-premium;
+    @apply inline-flex items-center justify-center rounded-full bg-maroon text-ivory px-6 py-3 text-sm font-semibold tracking-wide hover:bg-maroon/90 transition shadow-premium;
   }
   .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-full border border-maroon/30 text-maroon px-5 py-2 text-sm hover:bg-maroon/5 transition;
+    @apply inline-flex items-center justify-center rounded-full border border-maroon/30 text-maroon px-5 py-2 text-sm font-semibold hover:bg-maroon/5 transition;
   }
   .eyebrow {
-    @apply text-[11px] uppercase tracking-[0.35em] text-gold;
+    @apply text-[11px] uppercase tracking-[0.35em] text-gold font-medium;
   }
   .section-title {
-    @apply h-display text-3xl sm:text-5xl text-maroon;
+    @apply h-display text-3xl sm:text-5xl text-maroon font-bold;
   }
+}
+
+/* Kannada (and other Indic scripts) use combining glyphs to form akshara.
+   Letter-spacing splits the akshara apart and makes the text unreadable.
+   When the page is in Kannada mode, force normal spacing on everything. */
+:lang(kn),
+:lang(kn) * {
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
 }
 
 @layer utilities {
