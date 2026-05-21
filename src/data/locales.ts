@@ -78,41 +78,41 @@ export const locales: Record<LocaleType, Locale> = {
     footerNote: 'Made with love for our families & friends',
   },
   kn: {
-    groomName: 'ಗುಣಪಾಲ ಪಿ.',
-    brideName: 'ದೀಪ್ತಿ ಆರ್.',
-    coupleAlt: 'ಗುಣಪಾಲ ಮತ್ತು ದೀಪ್ತಿ',
-    choosePrompt: 'ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
-    choosePromptSub: 'ಸ್ವಾಗತ — ಮುಂದುವರಿಯಲು ಒಂದು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
-    english: 'English',
-    kannada: 'ಕನ್ನಡ',
-    inviteHeading: 'ಗುಣಪಾಲ ಪಿ. ಮತ್ತು ದೀಪ್ತಿ ಆರ್.',
-    inviteSubheading: 'ತಮ್ಮ ಆಗಮನವನ್ನು ಬಯಸುತ್ತಾರೆ',
-    withBlessings: '|| ಶ್ರೀ ಬೋರೇಶ್ವರ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ||',
-    saveTheDate: 'ಶುಭ ವಿವಾಹ',
-    rsvp: 'ಆರ್‌.ಎಸ್‌.ವಿ.ಪಿ.',
-    countdownTitle: 'ನಮ್ಮ ಸುದಿನಕ್ಕೆ ಕಾಲಗಣನೆ',
-    days: 'ದಿನಗಳು',
-    hours: 'ಗಂಟೆಗಳು',
-    minutes: 'ನಿಮಿಷಗಳು',
-    seconds: 'ಸೆಕೆಂಡುಗಳು',
-    detailsTitle: 'ವಿವಾಹ ಸಮಾರಂಭ',
-    ceremony: 'ಧಾರಾ ಮುಹೂರ್ತ',
-    ceremonyDate: 'ಗುರುವಾರ, ೨ ಜುಲೈ ೨೦೨೬',
-    ceremonyTime: 'ಬೆಳಿಗ್ಗೆ ೮:೩೦ – ೯:೦೦',
-    venue: 'ಸ್ಥಳ',
-    venueName: 'ಶ್ರೀ ಯೋಗ ನರಸಿಂಹ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ',
-    venueAddress:
-      'ಐಶ್ವರ್ಯ ಪೆಟ್ರೋಲ್ ಪಂಪ್ ಬಳಿ, ವಿಜಯನಗರ ೧ನೇ ಹಂತ, ಮೈಸೂರು, ಕರ್ನಾಟಕ ೫೭೦೦೧೭',
-    locationTitle: 'ನಮ್ಮನ್ನು ಇಲ್ಲಿ ಭೇಟಿಯಾಗಿ',
-    openInMaps: 'ಗೂಗಲ್ ನಕ್ಷೆಯಲ್ಲಿ ತೆರೆ',
-    rsvpTitle: 'ನೀವು ಬರುತ್ತೀರಾ?',
-    rsvpSubtitle: 'ದಯವಿಟ್ಟು ೧ ಜೂನ್ ೨೦೨೬ರೊಳಗೆ ಉತ್ತರಿಸಿ',
-    yourName: 'ನಿಮ್ಮ ಹೆಸರು',
-    guests: 'ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ',
-    willAttend: 'ಸಂತೋಷದಿಂದ ಒಪ್ಪುತ್ತೇನೆ',
-    willNotAttend: 'ಕ್ಷಮಿಸಿ, ಬರಲಾಗದು',
-    message: 'ದಂಪತಿಗಳಿಗೆ ಸಂದೇಶ (ಐಚ್ಛಿಕ)',
-    sendRsvp: 'ಆರ್‌.ಎಸ್‌.ವಿ.ಪಿ. ಕಳುಹಿಸಿ',
-    footerNote: 'ಪ್ರೀತಿಯಿಂದ ನಮ್ಮ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರಿಗಾಗಿ',
-  },
+  groomName: 'ಗುಣಪಾಲ್ ಪಿ',
+  brideName: 'ದೀಪ್ತಿ ಆರ್.',
+  coupleAlt: 'ಗುಣಪಾಲ್ ಮತ್ತು ದೀಪ್ತಿ',  // added halant for consistency
+  choosePrompt: 'ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+  choosePromptSub: 'ಸ್ವಾಗತ — ಮುಂದುವರಿಯಲು ಒಂದು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+  english: 'English',
+  kannada: 'ಕನ್ನಡ',
+  inviteHeading: 'ಗುಣಪಾಲ್ ಪಿ ಮತ್ತು ದೀಪ್ತಿ ಆರ್.',
+  inviteSubheading: 'ತಮ್ಮ ಸಪರಿವಾರ ಆಗಮನವನ್ನು ಬಯಸುತ್ತಾರೆ',  // added "ಸಪರಿವಾರ" for warmth
+  withBlessings: '|| ಶ್ರೀ ಬೋರೇಶ್ವರ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ||',
+  saveTheDate: 'ಶುಭ ವಿವಾಹ',
+  rsvp: 'ಆರ್‌.ಎಸ್‌.ವಿ.ಪಿ.',
+  countdownTitle: 'ನಮ್ಮ ಶುಭ ದಿನಕ್ಕೆ ಕಾಲಗಣನೆ',  // "ಶುಭ ದಿನ" reads more natural than "ಸುದಿನ"
+  days: 'ದಿನಗಳು',
+  hours: 'ಗಂಟೆಗಳು',
+  minutes: 'ನಿಮಿಷಗಳು',
+  seconds: 'ಸೆಕೆಂಡುಗಳು',
+  detailsTitle: 'ವಿವಾಹ ಸಮಾರಂಭ',
+  ceremony: 'ಧಾರಾ ಮುಹೂರ್ತ',
+  ceremonyDate: 'ಗುರುವಾರ, ೨ ಜುಲೈ ೨೦೨೬',
+  ceremonyTime: 'ಬೆಳಿಗ್ಗೆ ೮:೩೦ – ೯:೦೦',
+  venue: 'ಸ್ಥಳ',
+  venueName: 'ಶ್ರೀ ಯೋಗ ನರಸಿಂಹ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ',
+  venueAddress:
+    'ಐಶ್ವರ್ಯ ಪೆಟ್ರೋಲ್ ಪಂಪ್ ಬಳಿ, ವಿಜಯನಗರ ೧ನೇ ಹಂತ, ಮೈಸೂರು, ಕರ್ನಾಟಕ ೫೭೦೦೧೭',
+  locationTitle: 'ಇಲ್ಲಿ ನಮ್ಮನ್ನು ಭೇಟಿ ಮಾಡಿ',  // cleaner word order
+  openInMaps: 'ಗೂಗಲ್ ನಕ್ಷೆಯಲ್ಲಿ ತೆರೆಯಿರಿ',  // polite imperative
+  rsvpTitle: 'ತಾವು ಬರುತ್ತೀರಾ?',  // ತಾವು more respectful than ನೀವು
+  rsvpSubtitle: 'ದಯವಿಟ್ಟು ೧ ಜೂನ್ ೨೦೨೬ರ ಒಳಗೆ ತಿಳಿಸಿ',
+  yourName: 'ನಿಮ್ಮ ಹೆಸರು',
+  guests: 'ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ',
+  willAttend: 'ಸಂತೋಷದಿಂದ ಬರುತ್ತೇನೆ',  // matches the action "attend"
+  willNotAttend: 'ಕ್ಷಮಿಸಿ, ಬರಲಾಗುತ್ತಿಲ್ಲ',  // more personal
+  message: 'ವಧು-ವರರಿಗೆ ಸಂದೇಶ (ಐಚ್ಛಿಕ)',  // more accurate pre-wedding
+  sendRsvp: 'ಆರ್‌.ಎಸ್‌.ವಿ.ಪಿ. ಕಳುಹಿಸಿ',
+  footerNote: 'ನಮ್ಮ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರಿಗೆ ಪ್ರೀತಿಯಿಂದ',  // cleaner word order
+},
 };

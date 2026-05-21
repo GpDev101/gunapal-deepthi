@@ -10,12 +10,14 @@ type Props = {
   t: (typeof locales)['en'];
 };
 
+const KANNADA_ZERO = 0x0ce6;
+
 function formatDigits(n: number, lang: LocaleType) {
-  if (lang === 'kn') {
-    const s = n.toLocaleString('kn-IN', { useGrouping: false });
-    return s.length < 2 ? `೦${s}` : s;
-  }
-  return String(n).padStart(2, '0');
+  const padded = String(n).padStart(2, '0');
+  if (lang !== 'kn') return padded;
+  return padded.replace(/\d/g, (d) =>
+    String.fromCharCode(KANNADA_ZERO + Number(d)),
+  );
 }
 
 function diff(targetMs: number) {

@@ -10,7 +10,8 @@
       "Bash(rm -f tsconfig.tsbuildinfo; ls -la)",
       "Bash(npm install *)",
       "Bash(npm run *)",
-      "Bash(node -e \"console.log\\(require\\('./node_modules/framer-motion/package.json'\\).version\\)\")"
+      "Bash(node -e \"console.log\\(require\\('./node_modules/framer-motion/package.json'\\).version\\)\")",
+      "Bash(node -e \"const z=0x0ce6;const f=\\(n\\)=>String\\(n\\).padStart\\(2,'0'\\).replace\\(/\\\\d/g,d=>String.fromCharCode\\(z+Number\\(d\\)\\)\\);console.log\\(f\\(41\\),f\\(17\\),f\\(23\\),f\\(46\\),f\\(7\\),f\\(0\\)\\);\")"
     ],
     "additionalDirectories": [
       "D:\\ATS\\GpDev\\GP-Dipz101"
