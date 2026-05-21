@@ -35,9 +35,8 @@ export const WEDDING = {
     {
       role: 'bride',
       // Fill in: country-code + number, no '+', no spaces. e.g. '91XXXXXXXXXX'
-      whatsapp: '',
-      // Fill in: Deepthi's email
-      email: '',
+      whatsapp: '917338309106',
+      email: 'deepthir98@gmail.com',
     },
   ] as ReadonlyArray<RsvpContact>,
 } as const;
