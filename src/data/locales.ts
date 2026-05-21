@@ -3,6 +3,7 @@ export type LocaleType = 'en' | 'kn';
 type Locale = {
   groomName: string;
   brideName: string;
+  nameJoiner: string;
   coupleAlt: string;
   choosePrompt: string;
   choosePromptSub: string;
@@ -39,14 +40,15 @@ type Locale = {
 
 export const locales: Record<LocaleType, Locale> = {
   en: {
-    groomName: 'Gunapal P.',
-    brideName: 'Deepthi R.',
+    groomName: 'Gunapal P',
+    brideName: 'Deepthi R',
+    nameJoiner: '&',
     coupleAlt: 'Gunapal & Deepthi',
     choosePrompt: 'Choose your language',
     choosePromptSub: 'Welcome — please pick a language to continue',
     english: 'English',
     kannada: 'ಕನ್ನಡ',
-    inviteHeading: 'Gunapal P. & Deepthi R.',
+    inviteHeading: 'Gunapal P & Deepthi R',
     inviteSubheading: 'request the pleasure of your company',
     withBlessings: '|| Sri Boreswara Swamy Prasanna ||',
     saveTheDate: 'Wedding of',
@@ -70,7 +72,7 @@ export const locales: Record<LocaleType, Locale> = {
     rsvpSubtitle: 'Please respond by 1 June 2026',
     rsvpWhatsApp: 'RSVP via WhatsApp',
     rsvpEmail: 'or send us an email',
-    rsvpWhatsAppMessage: `Hi Gunapal & Deepthi! 🪔
+    rsvpWhatsAppMessage: `Hi Gunapal & Deepthi!
 
 I'd like to RSVP to your wedding:
 
@@ -95,13 +97,14 @@ Best wishes!`,
   },
   kn: {
   groomName: 'ಗುಣಪಾಲ್ ಪಿ',
-  brideName: 'ದೀಪ್ತಿ ಆರ್.',
+  brideName: 'ದೀಪ್ತಿ ಆರ್',
+  nameJoiner: 'ಮತ್ತು',
   coupleAlt: 'ಗುಣಪಾಲ್ ಮತ್ತು ದೀಪ್ತಿ',  // added halant for consistency
   choosePrompt: 'ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
   choosePromptSub: 'ಸ್ವಾಗತ — ಮುಂದುವರಿಯಲು ಒಂದು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
   english: 'English',
   kannada: 'ಕನ್ನಡ',
-  inviteHeading: 'ಗುಣಪಾಲ್ ಪಿ ಮತ್ತು ದೀಪ್ತಿ ಆರ್.',
+  inviteHeading: 'ಗುಣಪಾಲ್ ಪಿ ಮತ್ತು ದೀಪ್ತಿ ಆರ್',
   inviteSubheading: 'ತಮ್ಮ ಸಪರಿವಾರ ಆಗಮನವನ್ನು ಬಯಸುತ್ತಾರೆ',  // added "ಸಪರಿವಾರ" for warmth
   withBlessings: '|| ಶ್ರೀ ಬೋರೇಶ್ವರ ಸ್ವಾಮಿ ಪ್ರಸನ್ನ ||',
   saveTheDate: 'ಶುಭ ವಿವಾಹ',
@@ -125,7 +128,7 @@ Best wishes!`,
   rsvpSubtitle: 'ದಯವಿಟ್ಟು ೧ ಜೂನ್ ೨೦೨೬ರ ಒಳಗೆ ತಿಳಿಸಿ',
   rsvpWhatsApp: 'ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಪ್ರತಿಕ್ರಿಯಿಸಿ',
   rsvpEmail: 'ಅಥವಾ ಇಮೇಲ್ ಕಳುಹಿಸಿ',
-  rsvpWhatsAppMessage: `ನಮಸ್ಕಾರ ಗುಣಪಾಲ್ ಮತ್ತು ದೀಪ್ತಿ! 🪔
+  rsvpWhatsAppMessage: `ನಮಸ್ಕಾರ ಗುಣಪಾಲ್ ಮತ್ತು ದೀಪ್ತಿ!
 
 ನಿಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಾನು ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಲು ಬಯಸುತ್ತೇನೆ:
 

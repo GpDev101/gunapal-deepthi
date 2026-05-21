@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import LangToggle from '@/components/LangToggle';
 import LanguagePicker from '@/components/LanguagePicker';
 import Hero from '@/components/Hero';
@@ -31,12 +31,17 @@ export default function App() {
 
   return (
     <>
-      <Petals count={16} />
+      <Petals count={22} />
       <AnimatePresence mode="wait">
         {lang === null ? (
           <LanguagePicker key="picker" onChoose={setLang} />
         ) : (
-          <main key="content" className="selection:bg-gold/20">
+          <motion.main
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 } }}
+            className="selection:bg-gold/20"
+          >
             <LangToggle lang={lang} onChange={setLang} />
             <Hero t={locales[lang]} />
             <Countdown
@@ -48,7 +53,7 @@ export default function App() {
             <Location t={locales[lang]} />
             <Rsvp t={locales[lang]} />
             <Footer t={locales[lang]} />
-          </main>
+          </motion.main>
         )}
       </AnimatePresence>
     </>

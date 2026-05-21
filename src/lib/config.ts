@@ -22,6 +22,8 @@ export const WEDDING = {
   googleMapsEmbedUrl:
     'https://www.google.com/maps?q=Sri+Yoga+Narasimha+Swami+Temple+Vijayanagar+1st+Stage+Mysuru+570017&output=embed',
   coupleImage: 'assets/couple.png',
+  templeBgMobile: 'assets/temple-bg-mobile.jpg',
+  templeBgDesktop: 'assets/temple-bg-desktop.png',
 
   // RSVP contacts. Leave a field as '' to hide that channel for that person.
   // The RSVP section only renders contacts whose fields are non-empty,

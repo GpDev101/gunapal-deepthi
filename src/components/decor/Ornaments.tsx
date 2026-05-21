@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-export function MangoLeaf(props: SVGProps<SVGSVGElement>) {
+export function MangoLeaf(props: Readonly<SVGProps<SVGSVGElement>>) {
   return (
     <svg viewBox="0 0 64 24" fill="none" {...props}>
       <path
@@ -31,7 +31,7 @@ export function MangoLeaf(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function FlourishDivider(props: SVGProps<SVGSVGElement>) {
+export function FlourishDivider(props: Readonly<SVGProps<SVGSVGElement>>) {
   return (
     <svg viewBox="0 0 120 16" fill="none" {...props}>
       <path
@@ -131,7 +131,7 @@ export function FloralCorner({
   );
 }
 
-export function ArchFrame(props: SVGProps<SVGSVGElement>) {
+export function ArchFrame(props: Readonly<SVGProps<SVGSVGElement>>) {
   return (
     <svg viewBox="0 0 400 600" fill="none" preserveAspectRatio="none" {...props}>
       <defs>
@@ -160,7 +160,7 @@ export function ArchFrame(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function GaneshaSymbol(props: SVGProps<SVGSVGElement>) {
+export function GaneshaSymbol(props: Readonly<SVGProps<SVGSVGElement>>) {
   return (
     <svg viewBox="0 0 40 40" fill="none" {...props}>
       <text
@@ -177,11 +177,164 @@ export function GaneshaSymbol(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function Petal({ className = '' }: { className?: string }) {
+export function Petal({ className = '' }: Readonly<{ className?: string }>) {
   return (
     <svg viewBox="0 0 12 18" className={className} aria-hidden>
       <ellipse cx="6" cy="9" rx="4.5" ry="8.5" fill="#E89AB0" opacity="0.85" />
       <ellipse cx="6" cy="9" rx="2" ry="6" fill="#F4C7D2" opacity="0.9" />
     </svg>
+  );
+}
+
+/** Five-petal cherry blossom flower, ~16x16 viewbox. */
+export function Blossom({ className = '' }: Readonly<{ className?: string }>) {
+  const petals = [
+    { id: 'a', rot: 0 },
+    { id: 'b', rot: 72 },
+    { id: 'c', rot: 144 },
+    { id: 'd', rot: 216 },
+    { id: 'e', rot: 288 },
+  ];
+  return (
+    <svg viewBox="-10 -10 20 20" className={className} aria-hidden>
+      <g>
+        {petals.map((p) => (
+          <ellipse
+            key={p.id}
+            cx="0"
+            cy="-5"
+            rx="3"
+            ry="4.5"
+            fill="#F4A6BA"
+            transform={`rotate(${p.rot})`}
+          />
+        ))}
+        {petals.map((p) => (
+          <ellipse
+            key={`hi-${p.id}`}
+            cx="0"
+            cy="-5"
+            rx="1.2"
+            ry="2.5"
+            fill="#FBD3DD"
+            transform={`rotate(${p.rot})`}
+            opacity="0.85"
+          />
+        ))}
+        <circle cx="0" cy="0" r="1.6" fill="#E5A847" />
+      </g>
+    </svg>
+  );
+}
+
+/** Cherry-blossom branch hanging from a top corner.
+ *  Set `flip` to mirror it for the opposite corner. */
+export function CherryBranch({
+  flip = false,
+  className = '',
+}: Readonly<{ flip?: boolean; className?: string }>) {
+  return (
+    <svg
+      viewBox="0 0 240 200"
+      className={className}
+      aria-hidden
+      style={flip ? { transform: 'scaleX(-1)' } : undefined}
+    >
+      {/* main woody branch */}
+      <path
+        d="M -10 -5 Q 60 25 110 65 T 230 175"
+        stroke="#7A4B2A"
+        strokeWidth="3"
+        fill="none"
+        strokeLinecap="round"
+      />
+      {/* sub-branches */}
+      <path
+        d="M 55 22 Q 70 50 80 88"
+        stroke="#7A4B2A"
+        strokeWidth="1.6"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 130 78 Q 152 100 168 122"
+        stroke="#7A4B2A"
+        strokeWidth="1.6"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 190 138 Q 205 155 215 168"
+        stroke="#7A4B2A"
+        strokeWidth="1.3"
+        fill="none"
+        strokeLinecap="round"
+      />
+      {/* leaves */}
+      <g fill="#7BAE82">
+        <ellipse cx="40" cy="14" rx="3" ry="7" transform="rotate(-30 40 14)" />
+        <ellipse
+          cx="130"
+          cy="68"
+          rx="3"
+          ry="7"
+          transform="rotate(25 130 68)"
+        />
+        <ellipse
+          cx="195"
+          cy="142"
+          rx="2.5"
+          ry="6"
+          transform="rotate(15 195 142)"
+        />
+      </g>
+      {/* cherry blossoms (cluster) */}
+      <BranchBlossom cx={20} cy={4} size={10} />
+      <BranchBlossom cx={62} cy={28} size={11} />
+      <BranchBlossom cx={88} cy={58} size={9} />
+      <BranchBlossom cx={84} cy={92} size={8} />
+      <BranchBlossom cx={118} cy={72} size={10} />
+      <BranchBlossom cx={150} cy={92} size={9} />
+      <BranchBlossom cx={172} cy={124} size={11} />
+      <BranchBlossom cx={144} cy={140} size={8} />
+      <BranchBlossom cx={208} cy={158} size={9} />
+      <BranchBlossom cx={186} cy={172} size={7} />
+    </svg>
+  );
+}
+
+function BranchBlossom({
+  cx,
+  cy,
+  size,
+}: Readonly<{ cx: number; cy: number; size: number }>) {
+  const petals = ['a', 'b', 'c', 'd', 'e'];
+  return (
+    <g transform={`translate(${cx} ${cy})`}>
+      {petals.map((id, i) => (
+        <ellipse
+          key={id}
+          cx="0"
+          cy={-size * 0.5}
+          rx={size * 0.4}
+          ry={size * 0.55}
+          fill="#F4A6BA"
+          transform={`rotate(${i * 72})`}
+        />
+      ))}
+      {petals.map((id, i) => (
+        <ellipse
+          key={`hi-${id}`}
+          cx="0"
+          cy={-size * 0.5}
+          rx={size * 0.14}
+          ry={size * 0.3}
+          fill="#FBD3DD"
+          transform={`rotate(${i * 72})`}
+          opacity="0.85"
+        />
+      ))}
+      <circle cx="0" cy="0" r={size * 0.16} fill="#E5A847" />
+    </g>
   );
 }

@@ -2,29 +2,80 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import type { locales } from '@/data/locales';
 import { WEDDING } from '@/lib/config';
-import { FlourishDivider } from '@/components/decor/Ornaments';
+import { CherryBranch, FlourishDivider } from '@/components/decor/Ornaments';
 
 type Props = { t: (typeof locales)['en'] };
 
 export default function Hero({ t }: Readonly<Props>) {
   const reduce = useReducedMotion();
   const [imgOk, setImgOk] = useState(true);
+  const [bgOk, setBgOk] = useState(true);
 
   const base = import.meta.env.BASE_URL;
   const coupleSrc = `${base}${WEDDING.coupleImage}`.replace('//', '/');
+  const bgMobile = `${base}${WEDDING.templeBgMobile}`.replace('//', '/');
+  const bgDesktop = `${base}${WEDDING.templeBgDesktop}`.replace('//', '/');
 
   return (
-    <header className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            'radial-gradient(60% 50% at 50% 20%, rgba(212,175,55,0.16), transparent 60%), radial-gradient(60% 60% at 80% 80%, rgba(232,154,176,0.14), transparent 60%)',
-        }}
-      />
+    <header className="relative overflow-hidden min-h-screen flex flex-col">
+      <div aria-hidden className="absolute inset-0 -z-10">
+        {bgOk ? (
+          <>
+            <picture>
+              <source media="(min-width: 768px)" srcSet={bgDesktop} />
+              <img
+                src={bgMobile}
+                alt=""
+                onError={() => setBgOk(false)}
+                draggable={false}
+                className="absolute inset-0 w-full h-full object-cover object-center select-none bg-ken-burns"
+              />
+            </picture>
+            {/* ivory wash:
+                - heavy at the very top behind the blessing/names (readability)
+                - opens up around the couple (the temple does the work)
+                - lifts again behind the date/venue line
+                - fully opaque at the bottom so the seam into Countdown is invisible */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(to bottom, rgba(253,251,247,0.95) 0%, rgba(253,251,247,0.7) 22%, rgba(253,251,247,0.18) 48%, rgba(253,251,247,0.45) 78%, rgba(253,251,247,1) 100%)',
+              }}
+            />
+          </>
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(60% 50% at 50% 20%, rgba(212,175,55,0.16), transparent 60%), radial-gradient(60% 60% at 80% 80%, rgba(232,154,176,0.14), transparent 60%)',
+            }}
+          />
+        )}
+      </div>
 
-      <div className="section flex flex-col items-center text-center pt-28 sm:pt-32">
+      {/* cherry-blossom branches hanging from the top corners */}
+      <motion.div
+        aria-hidden
+        initial={reduce ? false : { opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute top-0 left-0 w-40 sm:w-60 lg:w-72 z-10"
+      >
+        <CherryBranch className="w-full h-auto branch-sway" />
+      </motion.div>
+      <motion.div
+        aria-hidden
+        initial={reduce ? false : { opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute top-0 right-0 w-40 sm:w-60 lg:w-72 z-10"
+      >
+        <CherryBranch flip className="w-full h-auto branch-sway branch-sway-delay" />
+      </motion.div>
+
+      <div className="relative flex-1 flex flex-col items-center justify-center text-center max-w-5xl mx-auto px-6 py-16 sm:py-20">
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +103,15 @@ export default function Hero({ t }: Readonly<Props>) {
           className="h-display mt-4 text-5xl sm:text-7xl leading-tight text-maroon text-shadow-soft"
         >
           {t.groomName}
-          <span className="block text-gold text-3xl sm:text-4xl my-2">&amp;</span>
+          <span
+            className={`block text-gold my-2 ${
+              t.nameJoiner.length > 1
+                ? 'h-serif italic text-xl sm:text-2xl lg:text-3xl'
+                : 'text-3xl sm:text-4xl'
+            }`}
+          >
+            {t.nameJoiner === '&' ? <>&amp;</> : t.nameJoiner}
+          </span>
           {t.brideName}
         </motion.h1>
 
@@ -67,7 +126,7 @@ export default function Hero({ t }: Readonly<Props>) {
               src={coupleSrc}
               alt={t.coupleAlt}
               onError={() => setImgOk(false)}
-              className="max-h-[320px] sm:max-h-[420px] w-auto mx-auto select-none drop-shadow-[0_12px_24px_rgba(107,27,27,0.18)]"
+              className="max-h-[320px] sm:max-h-[440px] lg:max-h-[520px] w-auto mx-auto select-none drop-shadow-[0_12px_24px_rgba(107,27,27,0.18)]"
               draggable={false}
             />
           ) : (
@@ -81,17 +140,15 @@ export default function Hero({ t }: Readonly<Props>) {
           transition={{ duration: 0.8, delay: 0.55 }}
           className="mt-10"
         >
-          <FlourishDivider className="mx-auto w-32 text-gold/70" />
-          <p className="mt-3 h-serif text-xl sm:text-2xl text-maroon">
+          <FlourishDivider className="mx-auto w-32 sm:w-44 text-gold/70" />
+          <p className="mt-4 h-serif text-2xl sm:text-3xl lg:text-4xl text-maroon">
             {t.ceremonyDate}
           </p>
-          <p className="h-serif text-base sm:text-lg text-maroon/80">
+          <p className="mt-1 h-serif text-lg sm:text-xl lg:text-2xl text-maroon/80">
             {t.ceremony} · {t.ceremonyTime}
           </p>
-          <p className="mt-2 text-sm text-maroon/70">{t.venueName}</p>
-          <p className="text-xs text-maroon/60">{WEDDING.venueShort}</p>
 
-          <div className="mt-7 flex flex-wrap gap-3 justify-center">
+          <div className="mt-8 sm:mt-10 flex flex-wrap gap-3 sm:gap-4 justify-center">
             <a href="#rsvp" className="btn-primary">
               {t.rsvp}
             </a>

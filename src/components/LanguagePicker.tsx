@@ -10,10 +10,14 @@ export default function LanguagePicker({ onChoose }: Readonly<Props>) {
   const reduce = useReducedMotion();
 
   return (
-    <div
+    <motion.div
       role="dialog"
       aria-modal="true"
       aria-labelledby="lang-picker-title"
+      initial={reduce ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduce ? undefined : { opacity: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }}
+      transition={{ duration: 0.4 }}
       className="fixed inset-0 z-[100] flex items-center justify-center p-6"
       style={{
         background:
@@ -23,6 +27,7 @@ export default function LanguagePicker({ onChoose }: Readonly<Props>) {
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 18, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={reduce ? undefined : { opacity: 0, y: -10, scale: 0.98, transition: { duration: 0.45 } }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="relative glass-card rounded-3xl px-8 py-10 sm:px-12 sm:py-12 text-center max-w-md w-full"
       >
@@ -66,6 +71,6 @@ export default function LanguagePicker({ onChoose }: Readonly<Props>) {
           You can switch any time from the top-right · ಯಾವಾಗ ಬೇಕಾದರೂ ಬದಲಾಯಿಸಿ
         </p>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
