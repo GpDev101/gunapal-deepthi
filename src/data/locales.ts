@@ -37,6 +37,9 @@ type Locale = {
   rsvpEmailBody: string;
   musicOn: string;
   musicOff: string;
+  dannyHeroMessages: ReadonlyArray<string>;
+  dannyRsvpMessages: ReadonlyArray<string>;
+  dannyAlt: string;
   footerNote: string;
 };
 
@@ -97,6 +100,22 @@ Message:
 Best wishes!`,
     musicOn: 'Mute music',
     musicOff: 'Play music',
+    dannyAlt: 'Danny',
+    dannyHeroMessages: [
+      'Woof! Welcome!',
+      'So happy you came! 🐾',
+      'Save the date!',
+      'Best day ever! 🎉',
+      'Pet me later, okay?',
+    ],
+    dannyRsvpMessages: [
+      "Woof! I'm Danny 🐾",
+      'Please RSVP!',
+      "Don't keep me waiting!",
+      "I'm watching… 👀",
+      'Did you tell us yet?',
+      'Woof woof — respond pls!',
+    ],
     footerNote: 'Made with love for our families & friends',
   },
   kn: {
@@ -155,6 +174,21 @@ Best wishes!`,
 ಶುಭಾಶಯಗಳು!`,
   musicOn: 'ಸಂಗೀತವನ್ನು ನಿಲ್ಲಿಸಿ',
   musicOff: 'ಸಂಗೀತವನ್ನು ಪ್ಲೇ ಮಾಡಿ',
-  footerNote: 'ನಮ್ಮ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರಿಗೆ ಪ್ರೀತಿಯಿಂದ',  // cleaner word order
+  dannyAlt: 'ಡ್ಯಾನಿ',
+  dannyHeroMessages: [
+    'ಬೌ ಬೌ! ಸ್ವಾಗತ!',
+    'ಬಂದಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದ! 🐾',
+    'ದಿನಾಂಕ ನೆನಪಿಡಿ!',
+    'ಸಂತೋಷದ ದಿನ! 🎉',
+  ],
+  dannyRsvpMessages: [
+    'ಬೌ ಬೌ! ನಾನು ಡ್ಯಾನಿ 🐾',
+    'ಆರ್‌.ಎಸ್‌.ವಿ.ಪಿ. ಮಾಡಿ!',
+    'ನನ್ನನ್ನು ಕಾಯಿಸಬೇಡಿ!',
+    'ನಾನು ನೋಡ್ತಾ ಇದ್ದೀನಿ… 👀',
+    'ತಿಳಿಸಿದ್ರಾ?',
+    'ಬೌ ಬೌ — ಉತ್ತರ ಕಳುಹಿಸಿ!',
+  ],
+  footerNote: 'ನಮ್ಮ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರಿಗೆ ಪ್ರೀತಿಯಿಂದ', 
 },
 };

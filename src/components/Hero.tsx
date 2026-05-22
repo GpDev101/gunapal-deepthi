@@ -126,7 +126,7 @@ export default function Hero({ t }: Readonly<Props>) {
               src={coupleSrc}
               alt={t.coupleAlt}
               onError={() => setImgOk(false)}
-              className="max-h-[320px] sm:max-h-[440px] lg:max-h-[520px] w-auto mx-auto select-none drop-shadow-[0_12px_24px_rgba(107,27,27,0.18)]"
+              className="max-h-[320px] sm:max-h-[440px] lg:max-h-[520px] w-auto mx-auto select-none"
               draggable={false}
             />
           ) : (
@@ -158,6 +158,7 @@ export default function Hero({ t }: Readonly<Props>) {
           </div>
         </motion.div>
       </div>
+
     </header>
   );
 }

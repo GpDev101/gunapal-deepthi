@@ -144,6 +144,18 @@ body {
   100% { transform: scale(1.06) translateY(-1.5%); }
 }
 
+/* ===== Danny mascot idle bob ===== */
+.danny-bob {
+  animation: danny-bob 4.5s ease-in-out infinite;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+@keyframes danny-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25%      { transform: translateY(-3px) rotate(-1deg); }
+  75%      { transform: translateY(-3px) rotate(1deg); }
+}
+
 /* ===== Music button pulse ring ===== */
 .animate-music-pulse {
   animation: music-pulse 2.6s ease-out infinite;
@@ -191,7 +203,8 @@ body {
   .gold-shimmer,
   .bg-ken-burns,
   .branch-sway,
-  .animate-music-pulse {
+  .animate-music-pulse,
+  .danny-bob {
     animation: none !important;
   }
   html { scroll-behavior: auto; }

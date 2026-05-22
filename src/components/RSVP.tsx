@@ -2,6 +2,7 @@ import type { locales } from '@/data/locales';
 import { WEDDING, type RsvpContact, type RsvpRole } from '@/lib/config';
 import Reveal from '@/components/decor/Reveal';
 import { FlourishDivider } from '@/components/decor/Ornaments';
+import DannyMascot from '@/components/DannyMascot';
 
 type Props = { t: (typeof locales)['en'] };
 
@@ -132,6 +133,18 @@ export default function Rsvp({ t }: Readonly<Props>) {
               </div>
             </div>
           )}
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.2}>
+        <div className="mt-16 sm:mt-20 flex justify-center">
+          <DannyMascot
+            messages={t.dannyRsvpMessages}
+            alt={t.dannyAlt}
+            size="xl"
+            initialBubble
+            autoCycleSeconds={4}
+          />
         </div>
       </Reveal>
     </section>
